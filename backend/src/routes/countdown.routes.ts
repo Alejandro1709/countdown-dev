@@ -1,9 +1,9 @@
 import { Router } from 'express'
-import { handleGetCountdowns, handleGetSingleCountdown } from '../controllers/countdownController'
+import { handleCreateCountdown, handleGetCountdowns, handleGetSingleCountdown } from '../controllers/countdownController'
 
 const router = Router()
 
-router.route('/').get(handleGetCountdowns)
+router.route('/').get(handleGetCountdowns).post(handleCreateCountdown)
 
 router.route('/:id').get(handleGetSingleCountdown)
 

@@ -1,7 +1,7 @@
 import User from './user'
 
 export default interface Countdown {
-  id: string
+  id: number
   title: string
   toDate: Date
   isCompleted?: boolean
