@@ -8,5 +8,11 @@ const jsonFile = fs.readFileSync(path.join(__dirname.replace('controllers', 'dat
 const countdowns: Array<Countdown> = JSON.parse(jsonFile)
 
 export const handleGetCountdowns = async (req: Request, res: Response) => {
-  res.send('All countdowns')
+  res.status(200).json(countdowns)
+}
+
+export const handleGetSingleCountdown = async (req: Request, res: Response) => {
+  const foundCountdown = countdowns.find((c) => c.id === req.params.id)
+
+  res.status(200).json(foundCountdown)
 }
