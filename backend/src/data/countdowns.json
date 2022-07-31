@@ -8,5 +8,16 @@
       "name": "Alejandro",
       "email": "alelarosa99@gmail.com"
     }
+  },
+  {
+    "id": 2,
+    "title": "Test event",
+    "toDate": "2022-06-17",
+    "author": {
+      "id": 2,
+      "name": "Alejandro",
+      "email": "alelarosa99@gmail.com",
+      "password": "1234567"
+    }
   }
 ]
