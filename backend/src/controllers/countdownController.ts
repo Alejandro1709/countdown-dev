@@ -24,7 +24,7 @@ export const handleCreateCountdown = async (req: Request, res: Response) => {
   const { title, toDate } = req.body
 
   const dummyAuthor: User = {
-    id: 1,
+    id: countdowns[countdowns.length - 1].id + 1,
     name: 'Alejandro',
     email: 'alelarosa99@gmail.com',
     password: '1234567'
