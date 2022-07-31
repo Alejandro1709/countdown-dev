@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "Birthday Party",
+    "isCompleted": false,
+    "author": {
+      "id": 1,
+      "name": "Alejandro",
+      "email": "alelarosa99@gmail.com"
+    }
+  }
+]

@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "name": "Alejandro",
+    "email": "alelarosa99@gmail.com",
+    "password": "123456",
+    "countdowns": [
+      {
+        "id": 1,
+        "title": "Birthday Party",
+        "isCompleted": false
+      }
+    ]
+  }
+]
