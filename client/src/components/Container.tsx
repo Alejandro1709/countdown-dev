@@ -6,7 +6,7 @@ type ContainerProps = {
 
 export default function Container({ children }: ContainerProps) {
   return (
-    <div className='mx-12'>
+    <div className='mx-6'>
       {children}
     </div>
   )

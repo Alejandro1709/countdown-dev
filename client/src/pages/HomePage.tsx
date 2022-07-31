@@ -1,8 +1,11 @@
 import React from 'react'
+import List from '../components/List'
 
 function HomePage() {
   return (
-    <div>HomePage</div>
+    <section>
+      <List />
+    </section>
   )
 }
 

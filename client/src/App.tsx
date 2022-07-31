@@ -9,11 +9,11 @@ function App() {
     <Fragment>
       <Container>
         <Header />
-        <div className=''>
+        <main>
           <Routes>
             <Route path='/' element={<HomePage />} />
           </Routes>
-        </div>
+        </main>
       </Container>
     </Fragment>
   )
