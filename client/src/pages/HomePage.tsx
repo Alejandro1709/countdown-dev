@@ -1,24 +1,33 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import List from '../components/List'
 import Countdown from '../types/countdown'
+import axios from 'axios'
 
-const countdowns: Countdown[] = [
-  {
-    id: 1,
-    title: 'Birthday Party',
-    toDate: '2022-17-09',
-    author: {
-      id: 1,
-      name: 'Alejandro',
-      email: 'alelarosa99@gmail.com',
-      password: '123456'
+function HomePage() {
+  const [data, setData] = useState<Countdown[]>([])
+
+  const getCountdowns = async () => {
+    try {
+      const { data } = await axios.get('/api/v1/countdowns')
+
+      setData(data)
+
+    } catch (error) {
+      console.error(error)
     }
   }
-]
-function HomePage() {
+
+  useEffect(() => {
+    getCountdowns()
+
+    return () => {
+      setData([])
+    }
+  }, [])
+
   return (
     <section>
-      <List data={countdowns}/>
+      <List data={data}/>
     </section>
   )
 }
