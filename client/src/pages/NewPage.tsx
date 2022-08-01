@@ -39,8 +39,8 @@ function NewPage() {
 
   return (
     <div className='px-2'>
-      {isLoading && <p>Loading...</p>}
-      <p>{message}</p>
+      {isLoading && <p className='p-4 bg-blue-300 text-white mb-2'>Loading...</p>}
+      {message &&  <p className='p-4 bg-blue-300 text-white mb-2'>{message}</p>}
       <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
         <div className="flex flex-col">
           <label htmlFor="title">Title:</label>
