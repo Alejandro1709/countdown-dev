@@ -1,13 +1,18 @@
 import React from 'react'
+import Countdown from '../types/countdown'
 
-function Item() {
+type ItemProps = {
+  item: Countdown
+}
+
+function Item({ item }: ItemProps) {
   return (
     <div className='flex justify-between bg-red-400 cursor-pointer hover:shadow-xl transition-all select-none'>
       <div className='p-3 ml-2'>
         <div className="flex items-center gap-4">
           <h1 className='text-3xl'>🤯</h1>
           <div className=''>
-            <h2 className='text-1xl font-bold text-white'>Trip to California</h2>
+            <h2 className='text-1xl font-bold text-white'>{item.title}</h2>
             <p className='font-semibold text-gray-300'>September 17, 2022</p>
           </div>
         </div>
