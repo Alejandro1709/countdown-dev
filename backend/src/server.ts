@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express'
+import countdownRoutes from './routes/countdown.routes'
 import morgan from 'morgan'
 import dotenv from 'dotenv'
 
@@ -15,6 +16,8 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // Routes
+app.use('/api/v1/countdowns', countdownRoutes)
+
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello API')
 })
