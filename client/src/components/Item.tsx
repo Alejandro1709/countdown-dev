@@ -1,4 +1,6 @@
 import React from 'react'
+import Moment from 'react-moment'
+import 'moment-timezone'
 import Countdown from '../types/countdown'
 
 type ItemProps = {
@@ -13,7 +15,9 @@ function Item({ item }: ItemProps) {
           <h1 className='text-3xl'>🤯</h1>
           <div className=''>
             <h2 className='text-1xl font-bold text-white'>{item.title}</h2>
-            <p className='font-semibold text-gray-300'>September 17, 2022</p>
+            <p className='font-semibold text-gray-300'>
+              <Moment format='LLLL'>{item.toDate}</Moment>
+            </p>
           </div>
         </div>
       </div>
