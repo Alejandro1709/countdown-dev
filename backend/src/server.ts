@@ -1,9 +1,14 @@
 import express, { Request, Response } from 'express'
 import countdownRoutes from './routes/countdown.routes'
+import connectDb from './db/connectDb'
 import morgan from 'morgan'
 import dotenv from 'dotenv'
 
 dotenv.config()
+
+const uri = process.env.NODE_ENV == 'development' ? process.env.MONGO_URI_DEV : process.env.MONGO_URI_PROD
+
+connectDb(uri)
 
 const app = express()
 
