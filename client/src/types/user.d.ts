@@ -1,7 +1,7 @@
 import Countdown from './countdown'
 
 export default interface User {
-  id: number
+  _id: string
   name: string
   email: string
   password: string

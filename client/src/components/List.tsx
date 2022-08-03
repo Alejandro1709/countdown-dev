@@ -12,7 +12,7 @@ function List({ data }: ListProps) {
     <div className='flex flex-col gap-4'>
       <NewItem />
       {data.map((obj) => (
-        <Item key={obj.id} item={obj} />
+        <Item key={obj._id} item={obj} />
       ))}
     </div>
   )

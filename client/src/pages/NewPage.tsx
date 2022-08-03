@@ -1,5 +1,5 @@
-import React, {useState, FormEvent} from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, FormEvent } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 function NewPage() {
@@ -7,6 +7,8 @@ function NewPage() {
   const [toDate, setToDate] = useState<string>('')
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [message, setMessage] = useState<string>('')
+
+  const navigate = useNavigate()
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -31,6 +33,8 @@ function NewPage() {
       setMessage(data.message)
 
       setIsLoading(false)
+
+      navigate('/')
 
     } catch (error) {
       console.error(error)
