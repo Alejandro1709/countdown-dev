@@ -1,13 +1,22 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Moment from 'react-moment'
-import 'moment-timezone'
 import Countdown from '../types/countdown'
+import { countDownFromDate } from '../utils/dateUtilities'
+import 'moment-timezone'
 
 type ItemProps = {
   item: Countdown
 }
 
 function Item({ item }: ItemProps) {
+
+  const [currentDayCount, setCurrentDayCount] = useState<number>(0)
+
+  useEffect(() => {
+    const result: number = countDownFromDate(item.toDate)
+    setCurrentDayCount(result)
+  }, [])
+  
   return (
     <div className='flex justify-between bg-red-400 cursor-pointer hover:shadow-xl transition-all select-none'>
       <div className='p-3 ml-2'>
