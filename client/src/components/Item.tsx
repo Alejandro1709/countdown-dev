@@ -31,8 +31,8 @@ function Item({ item }: ItemProps) {
         </div>
       </div>
       <div className='flex flex-col items-center justify-center bg-red-500 p-2'>
-        <h3 className='text-2xl font-semibold text-white'>10</h3>
-        <p className='text-sm text-white'>days left</p>
+        <h3 className='text-2xl font-semibold text-white'>{currentDayCount < 0 ? Math.abs(currentDayCount) : currentDayCount}</h3>
+        <p className='text-sm text-white'>{currentDayCount < 0 ? 'days ago' : 'days left'}</p>
       </div>
     </div>
   )
