@@ -7,9 +7,10 @@ import { Link } from 'react-router-dom'
 
 type ItemProps = {
   item: Countdown
+  isSelectable?: boolean
 }
 
-function Item({ item }: ItemProps) {
+function Item({ item, isSelectable }: ItemProps) {
 
   const [currentDayCount, setCurrentDayCount] = useState<number>(0)
 
@@ -20,7 +21,7 @@ function Item({ item }: ItemProps) {
   
   return (
     <Link to={`/countdowns/${item._id}`}>
-      <div className='flex justify-between bg-red-400 cursor-pointer hover:shadow-xl transition-all select-none'>
+      <div className={`flex justify-between bg-red-400 ${isSelectable ? 'cursor-pointer hover:shadow-xl transition-all' : ''} select-none`}>
         <div className='p-3 ml-2'>
           <div className="flex items-center gap-4">
             <h1 className='text-3xl'>🤯</h1>
