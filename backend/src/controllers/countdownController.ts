@@ -60,3 +60,20 @@ export const handleEditCountdown = async (req: Request, res: Response) => {
     res.status(500).json(error)
   }
 }
+
+export const handleDeleteCountdown = async (req: Request, res: Response) => {
+
+  try {
+    const countdown = await CountdownModel.findByIdAndRemove(req.params.id)
+
+    if (!countdown) {
+      return res.status(404).json({ message: 'Countdown does not exists' })
+    }
+
+    res.status(200).json({ message: 'Countdown removed!'})
+    
+  } catch (error) {
+    console.error(error)
+    res.status(500).json(error)
+  }
+}
