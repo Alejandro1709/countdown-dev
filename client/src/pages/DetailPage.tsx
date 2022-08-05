@@ -54,6 +54,22 @@ export default function DetailPage() {
     }
   }
 
+  const handleDeleteCountdown = async (id: string) => {
+    setIsLoading(true)
+
+    try {
+      const { data } = await axios.delete(`/api/v1/countdowns/${id}`)
+      console.log(data)
+
+      setIsLoading(false)
+
+      navigate('/')
+
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   useEffect(() => {
     if (id) {
       handleGetCountdown(id)
@@ -67,10 +83,12 @@ export default function DetailPage() {
       {message &&  <p className='p-4 bg-blue-300 text-white mb-2'>{message}</p>}
       {countdown ? <Item item={countdown} isSelectable={false}/> : <p className='p-4 bg-red-300 text-white mb-2'>Countdown not found</p> }
       <div className="editable mt-6">
-        <div className="flex flex-row justify-between gap-4">
-          <button className='p-2 bg-blue-400 text-white w-full rounded-md hover:bg-blue-500' onClick={() => setIsEditing(true)}>Edit</button>
-          <button className='p-2 bg-red-400 text-white w-full rounded-md hover:bg-red-500'>Delete</button>
-        </div>
+        {countdown && 
+           <div className="flex flex-row justify-between gap-4">
+             <button className='p-2 bg-blue-400 text-white w-full rounded-md hover:bg-blue-500' onClick={() => setIsEditing(true)}>Edit</button>
+             <button className='p-2 bg-red-400 text-white w-full rounded-md hover:bg-red-500' onClick={() => handleDeleteCountdown(countdown._id)}>Delete</button>
+           </div>
+        }
         {isEditing ? (
           <Fragment>
             <form className='flex flex-col gap-4 mt-6' onSubmit={handleUpdateCountdown}>
