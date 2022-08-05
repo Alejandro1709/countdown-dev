@@ -40,3 +40,23 @@ export const handleCreateCountdown = async (req: Request, res: Response) => {
     res.status(500).json(error)
   }
 }
+
+export const handleEditCountdown = async (req: Request, res: Response) => {
+  const { title, toDate } = req.body
+
+  try {
+    const countdown = await CountdownModel.findByIdAndUpdate(req.params.id, { title, toDate }, {
+      new: true,
+      runValidators: true
+    })
+
+    if (!countdown) {
+      return res.status(404).json({ message: 'Countdown does not exists' })
+    }
+
+    res.status(200).json(countdown)
+  } catch (error) {
+    console.error(error)
+    res.status(500).json(error)
+  }
+}
